@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ankithazra.online/sitemap.xml
