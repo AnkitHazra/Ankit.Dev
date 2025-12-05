@@ -57,19 +57,19 @@ function Project() {
               title: "Real-Time Location Tracker",
               desc: "Tracks & displays real-time user locations on an interactive map with Socket.io.",
               tech: ["Socket.IO", "Express.js", "Node.js", "Leaflet.js"],
-              link: "https://realtime-tracker-hg1n.onrender.com/",
+              link: "https://realtimetracker.ankithazra.online/",
             },
             {
               title: "Chess Game",
               desc: "Realtime multiplayer chess game with spectators support, deployed on Render.",
               tech: ["Socket.IO", "Express.js", "Node.js", "Chess.js"],
-              link: "https://chess-game-xb8b.onrender.com/",
+              link: "https://chess.ankithazra.online/",
             },
             {
               title: "Crop-Clinic Landing Page",
               desc: "Frontend of an AI Plant Disease Detection platform with modern responsive UI.",
               tech: ["React", "TailwindCSS", "Vite"],
-              link: "https://crop-clinic.netlify.app/",
+              link: "https://cropclinic.ankithazra.online/",
             },
           ].map((project, idx) => (
             <div
