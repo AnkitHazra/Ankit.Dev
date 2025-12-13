@@ -71,6 +71,30 @@ function Project() {
               tech: ["React", "TailwindCSS", "Vite"],
               link: "https://cropclinic.ankithazra.online/",
             },
+            {
+              title: "AI Traffic Cop",
+              desc: "An intelligent, automated traffic monitoring system.t integrates three AI models—Speed Monitoring, Helmet Detection, and Red-Light Violation.",
+              tech: ["Python", "OpenCV","YOLOv8", "HTML/CSS"],
+              link: "https://github.com/AnkitHazra/AI-TRAFFIC-COP",
+            },
+            {
+              title: "Weather App",
+              desc: "Experience realtime weather forecast in a minmal interface",
+              tech: ["HTML5", "CSS", "Javascript"],
+              link: "https://weather.ankithazra.online/",
+            },
+            {
+              title: "Qr Code Generator",
+              desc: "A simple application to share and download QR code generated from link.",
+              tech: ["Python", "HTML/CSS", "Flask"],
+              link: "https://qr-generator-1-twey.onrender.com/",
+            },
+            {
+              title: "BMI Calculator  ",
+              desc: "Calculate health metrics instantly with minimalsitic web interface",
+              tech: ["HTML5", "CSS", "Javascript"],
+              link: "https://bmi.ankithazra.online/",
+            }
           ].map((project, idx) => (
             <div
               key={idx}
