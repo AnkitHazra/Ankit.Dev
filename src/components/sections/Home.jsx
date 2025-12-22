@@ -16,6 +16,7 @@ function Home() {
     <section
       id="home"
       className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black"
+
     >
       {/* 🔥 Content block zooms on load */}
       <div
