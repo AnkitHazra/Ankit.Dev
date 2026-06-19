@@ -36,6 +36,12 @@ function Project() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             {
+              title: "Hirevity-AI Powered Job Portal",
+              desc: "AI-powered job portal using the MERN stack with dashboards for candidates and recruiters and ATS resume analysis wih scoring, keyword matching, and AI recommendations",
+              tech: ["React.js","Framer-Motion","Node.js", "Express.js", "MongoDB", "Postman", "JWT", "Bcrypt", "Cloudinary", "Multer","Gemini API"],
+              link: "https://job.ankithazra.online/",
+            },
+            {
               title: "Social Media Backend",
               desc: "A robust backend API for a social media platform built with Node.js, Express, and MongoDB. Supports authentication, posts, uploads, and more.",
               tech: ["Node.js", "Express.js", "MongoDB", "Postman", "JWT", "Bcrypt", "Cloudinary", "Multer"],
@@ -74,7 +80,7 @@ function Project() {
             {
               title: "AI Traffic Cop",
               desc: "An intelligent, automated traffic monitoring system.t integrates three AI models—Speed Monitoring, Helmet Detection, and Red-Light Violation.",
-              tech: ["Python", "OpenCV","YOLOv8", "HTML/CSS"],
+              tech: ["Python", "OpenCV", "YOLOv8", "HTML/CSS"],
               link: "https://github.com/AnkitHazra/AI-TRAFFIC-COP",
             },
             {
