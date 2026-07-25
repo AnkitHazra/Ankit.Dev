@@ -42,6 +42,12 @@ function Project() {
               link: "https://job.ankithazra.online/",
             },
             {
+              title: "Mentivra-JEE NEET preparatiob Platforn",
+              desc: "AI-powered and SEO optimized competitive exam preparation platform using the MERN stack with structured question and answers for with ai suggestions and insights.",
+              tech: ["React.js","Framer-Motion","Node.js", "Express.js", "MongoDB", "Postman", "JWT", "Bcrypt","Gemini API"],
+              link: "https://www.mentivra.site/",
+            },
+            {
               title: "Social Media Backend",
               desc: "A robust backend API for a social media platform built with Node.js, Express, and MongoDB. Supports authentication, posts, uploads, and more.",
               tech: ["Node.js", "Express.js", "MongoDB", "Postman", "JWT", "Bcrypt", "Cloudinary", "Multer"],
