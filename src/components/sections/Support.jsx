@@ -171,7 +171,7 @@ function Support() {
           >
             <motion.a
               variants={itemVariants}
-              href="#"
+              href="https://www.buymeachai.in/hazraankit"
               className="btn-primary inline-flex items-center gap-2"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
@@ -181,7 +181,7 @@ function Support() {
 
             <motion.a
               variants={itemVariants}
-              href="#"
+              href="upi://pay?pa=hazraankit668@oksbi&pn=Ankit%20Hazra&cu=INR"
               className="btn-secondary inline-flex items-center gap-2"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
