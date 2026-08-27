@@ -86,7 +86,7 @@ function Support() {
           {/* Creator Info */}
           <motion.div variants={itemVariants} className="text-center mb-8">
             <div className="inline-block p-3 bg-[#FFE600]/10 rounded-full mb-4 border border-[#FFE600]/20">
-              <img src="src\assets\ankit.png" alt="Ankit Hazra" className="w-24 h-24 rounded-full object-cover" />
+              <img src="ankit.png" alt="Ankit Hazra" className="w-24 h-24 rounded-full object-cover" />
             </div>
             <h3 className="text-2xl font-bold text-black mb-1">Ankit Hazra</h3>
             <p className="text-black/50 text-sm">Creator & Developer</p>

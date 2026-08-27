@@ -98,16 +98,19 @@ body {
 .btn-primary {
   background-color: #000000 !important;
   color: #ffffff !important;
-  padding: 14px 36px !important;
-  border-radius: 14px !important;
+  padding: 12px 28px !important;
+  border-radius: 12px !important;
   font-weight: 600 !important;
+  font-size: 0.95rem !important;
   border: 2px solid #000000 !important;
   transition: all 0.3s ease !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   text-decoration: none !important;
   gap: 8px !important;
   letter-spacing: 0.3px !important;
+  min-width: 140px !important;
 }
 
 .btn-primary:hover {
@@ -121,16 +124,19 @@ body {
 .btn-secondary {
   background-color: rgba(255, 255, 255, 0.8) !important;
   color: #000000 !important;
-  padding: 14px 36px !important;
-  border-radius: 14px !important;
+  padding: 12px 28px !important;
+  border-radius: 12px !important;
   font-weight: 600 !important;
-  border: 2px solid rgba(0, 0, 0, 0.1) !important;
+  font-size: 0.95rem !important;
+  border: 2px solid rgba(0, 0, 0, 0.15) !important;
   transition: all 0.3s ease !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   text-decoration: none !important;
   gap: 8px !important;
   letter-spacing: 0.3px !important;
+  min-width: 140px !important;
   backdrop-filter: blur(10px) !important;
 }
 
@@ -140,6 +146,17 @@ body {
   border-color: #ffe600 !important;
   box-shadow: 0 8px 32px rgba(255, 230, 0, 0.3) !important;
   transform: translateY(-2px) !important;
+}
+
+/* Mobile button adjustments */
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 24px !important;
+    font-size: 0.9rem !important;
+    min-width: 100% !important;
+    width: 100% !important;
+  }
 }
 
 /* ===== HIGHLIGHTER YELLOW ACCENTS ===== */

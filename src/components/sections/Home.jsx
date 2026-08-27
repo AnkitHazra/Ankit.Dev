@@ -6,9 +6,9 @@ function Home() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative bg-[#faf8f5] overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative bg-[#faf8f5] overflow-hidden pt-20 sm:pt-24 md:pt-0 mt-10"
     >
-      {/* Glassmorphism Background Decorations */}
+      {/* Background Decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div 
           className="absolute top-20 left-10 w-72 h-72 bg-[#FFE600]/10 rounded-full blur-3xl"
@@ -35,71 +35,80 @@ function Home() {
 
       {/* Content */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center z-10 px-6 max-w-4xl mx-auto"
+        className="text-center z-10 px-4 sm:px-6 max-w-4xl mx-auto w-full"
       >
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="inline-block mb-6 px-4 py-1.5 glass-light rounded-full text-xs font-medium text-black/60 border border-black/5"
+          className="inline-block mb-4 sm:mb-6 px-4 py-1.5 glass-light rounded-full text-xs font-medium text-black/60 border border-black/5"
         >
-          👋 Available for opportunities
+          🛡️ Available for opportunities
         </motion.div>
 
-        {/* Heading */}
-        <motion.h1
+        {/* Typing Effect */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-5xl md:text-7xl font-bold mb-6 text-black leading-tight"
+          className="mb-3 sm:mb-4"
         >
-          <ReactTyped
-            strings={["Hi, I'm Ankit Hazra"]}
-            typeSpeed={90}
-            backSpeed={50}
-            loop={2}
-            showCursor={true}
-            cursorChar="|"
-            className="text-black"
-          />
-        </motion.h1>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-tight">
+            <ReactTyped
+              strings={[
+                "Hi, I'm Ankit Hazra",
+                "Full Stack Developer",
+                "AI/ML Enthusiast",
+                "Problem Solver"
+              ]}
+              typeSpeed={60}
+              backSpeed={30}
+              backDelay={2000}
+              loop={true}
+              showCursor={true}
+              cursorChar="▌"
+              className="text-black"
+            />
+          </h1>
+        </motion.div>
 
-        {/* Highlight Divider */}
+        {/* Divider */}
         <motion.div 
-          className="w-20 h-1 bg-[#FFE600] mx-auto mb-8 rounded-full"
+          className="w-16 sm:w-20 h-1 bg-[#FFE600] mx-auto mb-6 sm:mb-8 rounded-full"
           initial={{ width: 0 }}
           animate={{ width: 80 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         />
 
-        {/* Subtitle */}
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-black/60 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
+          className="text-black/70 text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2"
         >
-          I'm a passionate developer with expertise in full-stack web solutions.
-          I focus on building responsive, efficient, and maintainable applications.
-          My aim is to create digital experiences that combine speed, functionality,
-          and simplicity while ensuring users enjoy seamless interactions.
+          I'm a passionate software developer focused on building modern, scalable, and user-centric digital solutions. 
+          With a strong foundation in full-stack development, I enjoy transforming ideas into responsive, efficient, 
+          and maintainable applications. I'm also interested in machine learning and emerging technologies, constantly 
+          exploring new ways to solve complex problems and create meaningful digital experiences. My goal is simple: 
+          build technology that is fast, functional, intuitive, and impactful.
         </motion.p>
 
         {/* Buttons */}
         <motion.div 
-          className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6"
+          className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
         >
-          <a href="#projects" className="btn-primary">
+          <a href="#projects" className="btn-primary w-full sm:w-auto text-center justify-center">
             View Projects
           </a>
-          <a href="#contact" className="btn-secondary">
+          <a href="#contact" className="btn-secondary w-full sm:w-auto text-center justify-center">
             Contact Me
           </a>
         </motion.div>
@@ -109,15 +118,15 @@ function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="mt-16 flex flex-col items-center gap-2"
+          className="mt-12 sm:mt-16 flex flex-col items-center gap-2"
         >
-          <span className="text-black/20 text-xs font-medium tracking-wider uppercase">
+          <span className="text-black/20 text-[10px] sm:text-xs font-medium tracking-wider uppercase">
             Scroll to explore
           </span>
-          <div className="w-5 h-8 border-2 border-black/20 rounded-full flex justify-center pt-1.5">
+          <div className="w-4 h-6 sm:w-5 sm:h-8 border-2 border-black/20 rounded-full flex justify-center pt-1">
             <motion.div 
-              className="w-1 h-2 bg-[#FFE600] rounded-full"
-              animate={{ y: [0, 8, 0] }}
+              className="w-1 h-1.5 sm:h-2 bg-[#FFE600] rounded-full"
+              animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
