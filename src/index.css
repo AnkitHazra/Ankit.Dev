@@ -1,82 +1,192 @@
 @import "tailwindcss";
 
+/* ===== BASE RESET ===== */
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Space Grotesk", sans-serif;
-  background-color: #0a0a0a;
-
+  font-family:
+    "Space Grotesk",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    sans-serif;
+  background-color: #faf8f5;
+  color: #000000;
+  scroll-behavior: smooth;
 }
-html, body {
+
+html,
+body {
   overflow-x: hidden;
 }
-@layer utilities {
-  @keyframes loading {
-    0% {
-      transform: translateX(-100%);
-    }
 
-    100% {
-      transform: translateX(250%);
-    }
-  }
-
-  .animate-loading-bar {
-    animation: loading 0.8s ease infinite;
-  }
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes blink {
-
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-
-  25%,
-  75% {
-    opacity: 0;
-  }
+::-webkit-scrollbar-track {
+  background: #f5f2ed;
 }
 
-@layer utilities {
-  .animate-blink {
-    animation: blink 1s step-start infinite;
-  }
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: #ffe600;
 }
 
-.animate-gradient {
-  animation: gradient 6s ease infinite;
+/* ===== SELECTION COLOR ===== */
+::selection {
+  background-color: #ffe600;
+  color: #000000;
 }
 
-@keyframes neonPulse {
-
-  0%,
-  100% {
-    box-shadow: 0 0 2px #3b82f6, 0 0 4px #3b82f6, 0 0 6px #3b82f6;
-  }
-
-  50% {
-    box-shadow: 0 0 4px #60a5fa, 0 0 8px #60a5fa, 0 0 12px #60a5fa;
-  }
+::-moz-selection {
+  background-color: #ffe600;
+  color: #000000;
 }
 
-.animate-pulse-neon {
-  animation: neonPulse 2s infinite;
+/* ===== FOCUS STYLES ===== */
+*:focus-visible {
+  outline: 2px solid #ffe600;
+  outline-offset: 2px;
+}
+
+/* ===== GLASSMORPHISM - ENHANCED ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.glass-hover {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 230, 0, 0.3);
+  box-shadow: 0 8px 40px rgba(255, 230, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ===== BUTTON STYLES ===== */
+.btn-primary {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  padding: 14px 36px !important;
+  border-radius: 14px !important;
+  font-weight: 600 !important;
+  border: 2px solid #000000 !important;
+  transition: all 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  gap: 8px !important;
+  letter-spacing: 0.3px !important;
+}
+
+.btn-primary:hover {
+  background-color: #ffe600 !important;
+  color: #000000 !important;
+  border-color: #ffe600 !important;
+  box-shadow: 0 8px 32px rgba(255, 230, 0, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: #000000 !important;
+  padding: 14px 36px !important;
+  border-radius: 14px !important;
+  font-weight: 600 !important;
+  border: 2px solid rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  gap: 8px !important;
+  letter-spacing: 0.3px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.btn-secondary:hover {
+  background-color: #ffe600 !important;
+  color: #000000 !important;
+  border-color: #ffe600 !important;
+  box-shadow: 0 8px 32px rgba(255, 230, 0, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ===== HIGHLIGHTER YELLOW ACCENTS ===== */
+.highlight-yellow {
+  color: #ffe600;
+}
+
+.highlight-yellow-bg {
+  background-color: #ffe600;
+}
+
+.highlight-yellow-border {
+  border-color: #ffe600;
+}
+
+.highlight-yellow-shadow {
+  box-shadow: 0 4px 20px rgba(255, 230, 0, 0.15);
+}
+
+.highlight-yellow-hover:hover {
+  color: #ffe600;
+}
+
+/* ===== SECTION SPACING ===== */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* ===== SMOOTH TRANSITIONS ===== */
+a,
+button,
+input,
+textarea,
+select {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 70px;
+  }
+
+  .glass,
+  .glass-light,
+  .glass-dark {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { motion } from "framer-motion";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,14 +8,6 @@ function Contact() {
     email: "",
     message: "",
   });
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-      easing: "ease-in-out",
-    });
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,112 +27,159 @@ function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      className="min-h-screen flex items-center justify-center py-20"
-    >
-      <div
-        className="px-4 w-full min-w-[300px] md:w-[500px] sm:w-2/3 p-6"
-        data-aos="zoom-in"
-      >
-        {/* Neon Heading */}
-        <h2
-          data-aos="fade-down"
-          data-aos-delay="200"
-          className="text-6xl font-extrabold mb-12 text-center 
-          bg-gradient-to-r from-cyan-300 to-blue-500  
-          bg-[length:200%_200%] animate-gradient bg-clip-text text-transparent 
-          drop-shadow-[0_0_15px_rgba(59,130,246,0.8)] 
-          transition-all duration-500 ease-in-out
-          hover:scale-105 hover:drop-shadow-[0_0_30px_rgba(59,130,246,1)]
-          "
+    <section id="contact" className="min-h-screen flex items-center justify-center py-20 bg-[#faf8f5]">
+      <div className="w-full max-w-md px-4">
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-5xl md:text-6xl font-bold mb-4 text-black text-center"
         >
           Get In Touch
-        </h2>
+        </motion.h2>
+        <motion.div 
+          initial={{ width: 0 }}
+          whileInView={{ width: 96 }}
+          viewport={{ once: true }}
+          className="h-1 bg-[#FFE600] mx-auto mb-12 rounded-full"
+        />
 
-        {/* Form */}
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          {/* Name */}
-          <div className="relative group" data-aos="fade-right" data-aos-delay="400">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              value={formData.name}
-              className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 
-              text-white transition focus:outline-none
-              focus:border-blue-500 focus:bg-blue-500/5
-              group-hover:border-cyan-400
-              group-hover:shadow-[0_0_15px_rgba(59,130,246,0.6)]
-              "
-              placeholder="Name..."
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-            />
-          </div>
+        {/* Form Card */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="glass-light rounded-2xl p-6 md:p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
+        >
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            {/* Name */}
+            <motion.div 
+              className="relative group"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                value={formData.name}
+                className="w-full bg-white/40 backdrop-blur-sm border border-black/10 rounded-xl px-4 py-3 
+                text-black placeholder:text-black/30 transition-all duration-300
+                focus:outline-none focus:border-[#FFE600] focus:ring-2 focus:ring-[#FFE600]/20
+                group-hover:border-[#FFE600]/50"
+                placeholder="Your Name"
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+              />
+              <label
+                htmlFor="name"
+                className="absolute -top-2.5 left-4 px-2 text-xs font-medium text-black/40 bg-[#faf8f5] transition-all duration-300 group-focus-within:text-[#FFE600]"
+              >
+                Name
+              </label>
+            </motion.div>
 
-          {/* Email */}
-          <div className="relative group" data-aos="fade-left" data-aos-delay="600">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              value={formData.email}
-              className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 
-              text-white transition focus:outline-none
-              focus:border-blue-500 focus:bg-blue-500/5
-              group-hover:border-cyan-400
-              group-hover:shadow-[0_0_15px_rgba(59,130,246,0.6)]
-              "
-              placeholder="example@gmail.com"
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-            />
-          </div>
+            {/* Email */}
+            <motion.div 
+              className="relative group"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={formData.email}
+                className="w-full bg-white/40 backdrop-blur-sm border border-black/10 rounded-xl px-4 py-3 
+                text-black placeholder:text-black/30 transition-all duration-300
+                focus:outline-none focus:border-[#FFE600] focus:ring-2 focus:ring-[#FFE600]/20
+                group-hover:border-[#FFE600]/50"
+                placeholder="your@email.com"
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+              />
+              <label
+                htmlFor="email"
+                className="absolute -top-2.5 left-4 px-2 text-xs font-medium text-black/40 bg-[#faf8f5] transition-all duration-300 group-focus-within:text-[#FFE600]"
+              >
+                Email
+              </label>
+            </motion.div>
 
-          {/* Message */}
-          <div className="relative group" data-aos="fade-up" data-aos-delay="800">
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows={5}
-              value={formData.message}
-              className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 
-              text-white transition focus:outline-none
-              focus:border-blue-500 focus:bg-blue-500/5
-              group-hover:border-cyan-400
-              group-hover:shadow-[0_0_15px_rgba(59,130,246,0.6)]
-              "
-              placeholder="Your Message..."
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
-            />
-          </div>
+            {/* Message */}
+            <motion.div 
+              className="relative group"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                value={formData.message}
+                className="w-full bg-white/40 backdrop-blur-sm border border-black/10 rounded-xl px-4 py-3 
+                text-black placeholder:text-black/30 transition-all duration-300 resize-none
+                focus:outline-none focus:border-[#FFE600] focus:ring-2 focus:ring-[#FFE600]/20
+                group-hover:border-[#FFE600]/50"
+                placeholder="Your message..."
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+              />
+              <label
+                htmlFor="message"
+                className="absolute -top-2.5 left-4 px-2 text-xs font-medium text-black/40 bg-[#faf8f5] transition-all duration-300 group-focus-within:text-[#FFE600]"
+              >
+                Message
+              </label>
+            </motion.div>
 
-          {/* Neon Button */}
-          <button
-            type="submit"
-            data-aos="zoom-in-up"
-            data-aos-delay="1000"
-            className="w-full bg-blue-500 text-white py-3 px-6 rounded-2xl font-medium 
-            transition-all duration-300 relative overflow-hidden
-            hover:scale-105 
-            hover:shadow-[0_0_20px_rgba(59,130,246,0.8),0_0_40px_rgba(59,130,246,0.6)]
-            hover:bg-cyan-100 hover:text-blue-700
-            before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-500 before:to-cyan-400 
-            before:opacity-0 before:transition-opacity before:duration-500
-            hover:before:opacity-20
-            "
-          >
-            Send Message
-          </button>
-        </form>
+            {/* Submit Button */}
+            <motion.button
+              type="submit"
+              className="btn-primary w-full justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Send Message
+            </motion.button>
+
+            {/* Alternative Contact */}
+            <motion.div 
+              className="text-center pt-4 border-t border-black/5"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              <p className="text-sm text-black/40">
+                Or reach me directly at{" "}
+                <a
+                  href="mailto:hazraankit668@gmail.com"
+                  className="text-black hover:text-[#FFE600] font-medium transition-colors duration-300"
+                >
+                  hazraankit668@gmail.com
+                </a>
+              </p>
+            </motion.div>
+          </form>
+        </motion.div>
       </div>
     </section>
   );

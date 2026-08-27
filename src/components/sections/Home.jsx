@@ -1,37 +1,61 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ReactTyped } from "react-typed";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { motion } from "framer-motion";
 
 function Home() {
-  useEffect(() => {
-    AOS.init({
-      duration: 2500, // smooth timing
-      easing: "ease-in-out", // natural easing
-      once: false, // only animate once
-    });
-  }, []);
-
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black"
-
+      className="min-h-screen flex items-center justify-center relative bg-[#faf8f5] overflow-hidden"
     >
-      {/* 🔥 Content block zooms on load */}
-      <div
-        data-aos="zoom-in"
-        data-aos-duration="1600"
-        className="text-center z-10 px-6"
+      {/* Glassmorphism Background Decorations */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div 
+          className="absolute top-20 left-10 w-72 h-72 bg-[#FFE600]/10 rounded-full blur-3xl"
+          animate={{ 
+            x: [0, 30, 0],
+            y: [0, -20, 0]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-10 w-96 h-96 bg-black/5 rounded-full blur-3xl"
+          animate={{ 
+            x: [0, -30, 0],
+            y: [0, 20, 0]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFE600]/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      {/* Content */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-center z-10 px-6 max-w-4xl mx-auto"
       >
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="inline-block mb-6 px-4 py-1.5 glass-light rounded-full text-xs font-medium text-black/60 border border-black/5"
+        >
+          👋 Available for opportunities
+        </motion.div>
+
         {/* Heading */}
-        <h1
-          data-aos="fade-down"
-          data-aos-delay="300"
-          className="text-5xl md:text-7xl font-extrabold mb-6 
-          bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600 
-          bg-[length:200%_200%] animate-gradient bg-clip-text 
-          text-transparent leading-tight"
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-5xl md:text-7xl font-bold mb-6 text-black leading-tight"
         >
           <ReactTyped
             strings={["Hi, I'm Ankit Hazra"]}
@@ -39,54 +63,66 @@ function Home() {
             backSpeed={50}
             loop={2}
             showCursor={true}
+            cursorChar="|"
+            className="text-black"
           />
-        </h1>
+        </motion.h1>
+
+        {/* Highlight Divider */}
+        <motion.div 
+          className="w-20 h-1 bg-[#FFE600] mx-auto mb-8 rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: 80 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        />
 
         {/* Subtitle */}
-        <p
-          data-aos="fade-up"
-          data-aos-delay="600"
-          className="text-gray-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="text-black/60 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
         >
-          I’m a passionate developer with expertise in full-stack web solutions.
+          I'm a passionate developer with expertise in full-stack web solutions.
           I focus on building responsive, efficient, and maintainable applications.
           My aim is to create digital experiences that combine speed, functionality,
           and simplicity while ensuring users enjoy seamless interactions.
-        </p>
+        </motion.p>
 
-        {/* Neon Buttons */}
-        <div className="flex justify-center space-x-6">
-          <a
-            href="#projects"
-            data-aos="flip-left"
-            data-aos-delay="900"
-            className="relative px-8 py-3 rounded-xl font-semibold text-xl 
-            text-blue-500 border-2 border-blue-500 
-            shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6] 
-            transition transform hover:-translate-y-1 
-            hover:bg-cyan-100 hover:text-blue-800 
-            hover:shadow-[0_0_20px_#3b82f6,0_0_40px_#3b82f6,0_0_60px_#3b82f6] 
-            animate-pulse-neon"
-          >
+        {/* Buttons */}
+        <motion.div 
+          className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+        >
+          <a href="#projects" className="btn-primary">
             View Projects
           </a>
-
-          <a
-            href="#contact"
-            data-aos="flip-right"
-            data-aos-delay="1100"
-            className="relative px-8 py-3 rounded-xl font-semibold text-xl 
-            text-blue-500 border-2 border-blue-500 
-            shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6] 
-            transition transform hover:-translate-y-1  
-            hover:bg-cyan-100 hover:text-blue-800 
-            hover:shadow-[0_0_20px_#3b82f6,0_0_40px_#3b82f6,0_0_60px_#3b82f6] 
-            animate-pulse-neon"
-          >
+          <a href="#contact" className="btn-secondary">
             Contact Me
           </a>
-        </div>
-      </div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="mt-16 flex flex-col items-center gap-2"
+        >
+          <span className="text-black/20 text-xs font-medium tracking-wider uppercase">
+            Scroll to explore
+          </span>
+          <div className="w-5 h-8 border-2 border-black/20 rounded-full flex justify-center pt-1.5">
+            <motion.div 
+              className="w-1 h-2 bg-[#FFE600] rounded-full"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
