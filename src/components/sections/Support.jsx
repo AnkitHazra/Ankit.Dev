@@ -181,7 +181,7 @@ function Support() {
 
             <motion.a
               variants={itemVariants}
-              href="upi://pay?pa=hazraankit668@oksbi&pn=Ankit%20Hazra"
+              href="upi://pay?pa=hazraankit668@oksbi&pn=Ankit%20Hazra&am=50.00&cu=INR"
               className="btn-secondary inline-flex items-center gap-2"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
