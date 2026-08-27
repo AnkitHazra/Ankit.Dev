@@ -6,13 +6,29 @@ function Project() {
     {
       title: "Hirevity - AI Powered Job Portal",
       desc: "AI-powered job portal using the MERN stack with dashboards for candidates and recruiters and ATS resume analysis with scoring, keyword matching, and AI recommendations",
-      tech: ["React.js", "Framer-Motion", "Node.js", "Express.js", "MongoDB", "JWT", "Gemini API"],
+      tech: [
+        "React.js",
+        "Framer-Motion",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+        "Gemini API",
+      ],
       link: "https://job.ankithazra.online/",
     },
     {
       title: "Mentivra - JEE NEET Preparation Platform",
       desc: "AI-powered and SEO optimized competitive exam preparation platform using the MERN stack with structured question and answers with AI suggestions and insights.",
-      tech: ["React.js", "Framer-Motion", "Node.js", "Express.js", "MongoDB", "JWT", "Gemini API"],
+      tech: [
+        "React.js",
+        "Framer-Motion",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+        "Gemini API",
+      ],
       link: "https://www.mentivra.site/",
     },
     {
@@ -74,20 +90,20 @@ function Project() {
       desc: "Calculate health metrics instantly with minimalistic web interface.",
       tech: ["HTML5", "CSS", "JavaScript"],
       link: "https://bmi.ankithazra.online/",
-    }
+    },
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+      transition: { staggerChildren: 0.1 },
+    },
   };
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -102,7 +118,7 @@ function Project() {
         >
           Featured Projects
         </motion.h2>
-        <motion.div 
+        <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: 96 }}
           viewport={{ once: true }}
@@ -110,7 +126,7 @@ function Project() {
         />
 
         {/* Project Grid */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
@@ -165,7 +181,7 @@ function Project() {
         </motion.div>
 
         {/* View More Button */}
-        <motion.div 
+        <motion.div
           className="flex justify-center mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

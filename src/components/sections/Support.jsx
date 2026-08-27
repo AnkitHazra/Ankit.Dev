@@ -1,48 +1,76 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaHeart, FaCoffee, FaWallet, FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
+import {
+  FaHeart,
+  FaCoffee,
+  FaWallet,
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+  FaFacebook,
+} from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
 function Support() {
   const socialLinks = [
     { icon: FaGithub, link: "https://github.com/AnkitHazra", label: "GitHub" },
-    { icon: FaLinkedin, link: "https://www.linkedin.com/in/hazraankit2005/", label: "LinkedIn" },
-    { icon: SiLeetcode, link: "https://leetcode.com/u/Ankit_Hazra/", label: "LeetCode" },
+    {
+      icon: FaLinkedin,
+      link: "https://www.linkedin.com/in/hazraankit2005/",
+      label: "LinkedIn",
+    },
+    {
+      icon: SiLeetcode,
+      link: "https://leetcode.com/u/Ankit_Hazra/",
+      label: "LeetCode",
+    },
     { icon: FaTwitter, link: "https://x.com/hazraAnkit790", label: "Twitter" },
-    { icon: FaInstagram, link: "https://www.instagram.com/hazra_ankit1/", label: "Instagram" },
-    { icon: FaFacebook, link: "https://www.facebook.com/profile.php?id=100093854046682", label: "Facebook" }
+    {
+      icon: FaInstagram,
+      link: "https://www.instagram.com/hazra_ankit1/",
+      label: "Instagram",
+    },
+    {
+      icon: FaFacebook,
+      link: "https://www.facebook.com/profile.php?id=100093854046682",
+      label: "Facebook",
+    },
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+      transition: { staggerChildren: 0.1 },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <section id="support" className="min-h-screen flex items-center justify-center py-20 bg-[#faf8f5] relative overflow-hidden">
+    <section
+      id="support"
+      className="min-h-screen flex items-center justify-center py-20 bg-[#faf8f5] relative overflow-hidden"
+    >
       {/* Background Decorations */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
+        <motion.div
           className="absolute top-20 right-20 w-80 h-80 bg-[#FFE600]/5 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             x: [0, -20, 0],
-            y: [0, 20, 0]
+            y: [0, 20, 0],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 left-20 w-80 h-80 bg-black/5 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             x: [0, 20, 0],
-            y: [0, -20, 0]
+            y: [0, -20, 0],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -58,7 +86,7 @@ function Support() {
         >
           Support the Creator
         </motion.h2>
-        <motion.div 
+        <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: 96 }}
           viewport={{ once: true }}
@@ -71,8 +99,8 @@ function Support() {
           viewport={{ once: true }}
           className="text-black/60 text-center text-lg mb-12 max-w-2xl mx-auto leading-relaxed"
         >
-          If you find this platform helpful, consider supporting the development. 
-          Every contribution helps make Hirevity better!
+          If you find this platform helpful, consider supporting the
+          development. Every contribution helps make Hirevity better!
         </motion.p>
 
         {/* Main Support Card */}
@@ -86,17 +114,25 @@ function Support() {
           {/* Creator Info */}
           <motion.div variants={itemVariants} className="text-center mb-8">
             <div className="inline-block p-3 bg-[#FFE600]/10 rounded-full mb-4 border border-[#FFE600]/20">
-              <img src="ankit.png" alt="Ankit Hazra" className="w-24 h-24 rounded-full object-cover" />
+              <img
+                src="ankit.png"
+                alt="Ankit Hazra"
+                className="w-24 h-24 rounded-full object-cover"
+              />
             </div>
             <h3 className="text-2xl font-bold text-black mb-1">Ankit Hazra</h3>
             <p className="text-black/50 text-sm">Creator & Developer</p>
             <div className="w-12 h-0.5 bg-[#FFE600] mx-auto my-3 rounded-full"></div>
-            <p className="text-black/40 text-sm italic">Code, Collaborate, Create</p>
+            <p className="text-black/40 text-sm italic">
+              Code, Collaborate, Create
+            </p>
           </motion.div>
 
           {/* Social Links */}
           <motion.div variants={itemVariants} className="mb-8">
-            <p className="text-black/40 text-sm text-center mb-4">Connect with me</p>
+            <p className="text-black/40 text-sm text-center mb-4">
+              Connect with me
+            </p>
             <div className="flex flex-wrap justify-center gap-4">
               {socialLinks.map((social, idx) => (
                 <motion.a
@@ -116,19 +152,20 @@ function Support() {
           </motion.div>
 
           {/* Divider */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="relative flex items-center justify-center my-6"
           >
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent"></div>
             <span className="px-4 text-black/30 text-sm flex items-center gap-2">
-              <FaHeart className="text-[#FFE600] text-xs" /> Support my work <FaHeart className="text-[#FFE600] text-xs" />
+              <FaHeart className="text-[#FFE600] text-xs" /> Support my work{" "}
+              <FaHeart className="text-[#FFE600] text-xs" />
             </span>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent"></div>
           </motion.div>
 
           {/* Support Buttons */}
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6"
           >
@@ -163,7 +200,7 @@ function Support() {
         </motion.div>
 
         {/* Decorative Elements */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

@@ -13,27 +13,34 @@ function Footer() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h3 className="text-2xl font-bold mb-4 text-black">
-            Let's Connect
-          </h3>
+          <h3 className="text-2xl font-bold mb-4 text-black">Let's Connect</h3>
           <div className="w-16 h-1 bg-[#FFE600] mx-auto mb-6 rounded-full"></div>
-          
+
           <div className="space-y-2 text-black/60">
             <p className="hover:text-black transition-colors duration-300">
               <span className="mr-2">✉️</span>
-              <a href="mailto:hazraankit668@gmail.com" className="hover:text-[#FFE600] transition-colors duration-300">
+              <a
+                href="mailto:hazraankit668@gmail.com"
+                className="hover:text-[#FFE600] transition-colors duration-300"
+              >
                 hazraankit668@gmail.com
               </a>
             </p>
             <p className="hover:text-black transition-colors duration-300">
               <span className="mr-2">✉️</span>
-              <a href="mailto:ankit.hazra2023@iem.edu.in" className="hover:text-[#FFE600] transition-colors duration-300">
+              <a
+                href="mailto:ankit.hazra2023@iem.edu.in"
+                className="hover:text-[#FFE600] transition-colors duration-300"
+              >
                 ankit.hazra2023@iem.edu.in
               </a>
             </p>
             <p className="hover:text-black transition-colors duration-300">
               <span className="mr-2">📞</span>
-              <a href="tel:+917908618931" className="hover:text-[#FFE600] transition-colors duration-300">
+              <a
+                href="tel:+917908618931"
+                className="hover:text-[#FFE600] transition-colors duration-300"
+              >
                 +91 7908618931
               </a>
             </p>
@@ -49,9 +56,21 @@ function Footer() {
           className="flex justify-center space-x-8 mb-10"
         >
           {[
-            { icon: FaGithub, link: "https://github.com/AnkitHazra", label: "GitHub" },
-            { icon: FaLinkedin, link: "https://www.linkedin.com/in/hazraankit2005/", label: "LinkedIn" },
-            { icon: FaTwitter, link: "https://x.com/hazraAnkit790", label: "Twitter" }
+            {
+              icon: FaGithub,
+              link: "https://github.com/AnkitHazra",
+              label: "GitHub",
+            },
+            {
+              icon: FaLinkedin,
+              link: "https://www.linkedin.com/in/hazraankit2005/",
+              label: "LinkedIn",
+            },
+            {
+              icon: FaTwitter,
+              link: "https://x.com/hazraAnkit790",
+              label: "Twitter",
+            },
           ].map((social, idx) => (
             <motion.a
               key={idx}
@@ -87,7 +106,7 @@ function Footer() {
         </motion.p>
 
         {/* Decorative Dots */}
-        <motion.div 
+        <motion.div
           className="mt-4 flex justify-center gap-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

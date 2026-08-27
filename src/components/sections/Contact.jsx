@@ -17,7 +17,7 @@ function Contact() {
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID,
         e.target,
-        import.meta.env.VITE_PUBLIC_KEY
+        import.meta.env.VITE_PUBLIC_KEY,
       )
       .then(() => {
         alert("Message Sent!");
@@ -27,7 +27,10 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center py-20 bg-[#faf8f5]">
+    <section
+      id="contact"
+      className="min-h-screen flex items-center justify-center py-20 bg-[#faf8f5]"
+    >
       <div className="w-full max-w-md px-4">
         {/* Heading */}
         <motion.h2
@@ -38,7 +41,7 @@ function Contact() {
         >
           Get In Touch
         </motion.h2>
-        <motion.div 
+        <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: 96 }}
           viewport={{ once: true }}
@@ -46,7 +49,7 @@ function Contact() {
         />
 
         {/* Form Card */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -54,7 +57,7 @@ function Contact() {
         >
           <form className="space-y-5" onSubmit={handleSubmit}>
             {/* Name */}
-            <motion.div 
+            <motion.div
               className="relative group"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -85,7 +88,7 @@ function Contact() {
             </motion.div>
 
             {/* Email */}
-            <motion.div 
+            <motion.div
               className="relative group"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -116,7 +119,7 @@ function Contact() {
             </motion.div>
 
             {/* Message */}
-            <motion.div 
+            <motion.div
               className="relative group"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -161,7 +164,7 @@ function Contact() {
             </motion.button>
 
             {/* Alternative Contact */}
-            <motion.div 
+            <motion.div
               className="text-center pt-4 border-t border-black/5"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { ReactTyped } from "react-typed";
 import { motion } from "framer-motion";
 
@@ -10,23 +10,23 @@ function Home() {
     >
       {/* Background Decorations */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
+        <motion.div
           className="absolute top-20 left-10 w-72 h-72 bg-[#FFE600]/10 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             x: [0, 30, 0],
-            y: [0, -20, 0]
+            y: [0, -20, 0],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 right-10 w-96 h-96 bg-black/5 rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             x: [0, -30, 0],
-            y: [0, 20, 0]
+            y: [0, 20, 0],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div 
+        <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFE600]/5 rounded-full blur-3xl"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -63,7 +63,7 @@ function Home() {
                 "Hi, I'm Ankit Hazra",
                 "Full Stack Developer",
                 "AI/ML Enthusiast",
-                "Problem Solver"
+                "Problem Solver",
               ]}
               typeSpeed={60}
               backSpeed={30}
@@ -77,7 +77,7 @@ function Home() {
         </motion.div>
 
         {/* Divider */}
-        <motion.div 
+        <motion.div
           className="w-16 sm:w-20 h-1 bg-[#FFE600] mx-auto mb-6 sm:mb-8 rounded-full"
           initial={{ width: 0 }}
           animate={{ width: 80 }}
@@ -91,24 +91,33 @@ function Home() {
           transition={{ delay: 0.6 }}
           className="text-black/70 text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2"
         >
-          I'm a passionate software developer focused on building modern, scalable, and user-centric digital solutions. 
-          With a strong foundation in full-stack development, I enjoy transforming ideas into responsive, efficient, 
-          and maintainable applications. I'm also interested in machine learning and emerging technologies, constantly 
-          exploring new ways to solve complex problems and create meaningful digital experiences. My goal is simple: 
-          build technology that is fast, functional, intuitive, and impactful.
+          Passionate software developer focused on building modern, scalable,
+          and user-centric digital solutions. With a strong foundation in
+          full-stack development, I enjoy transforming ideas into responsive,
+          efficient, and maintainable applications. I'm also interested in
+          machine learning and emerging technologies, constantly exploring new
+          ways to solve complex problems and create meaningful digital
+          experiences. My goal is simple: build technology that is fast,
+          functional, intuitive, and impactful.
         </motion.p>
 
         {/* Buttons */}
-        <motion.div 
+        <motion.div
           className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
         >
-          <a href="#projects" className="btn-primary w-full sm:w-auto text-center justify-center">
+          <a
+            href="#projects"
+            className="btn-primary w-full sm:w-auto text-center justify-center"
+          >
             View Projects
           </a>
-          <a href="#contact" className="btn-secondary w-full sm:w-auto text-center justify-center">
+          <a
+            href="#contact"
+            className="btn-secondary w-full sm:w-auto text-center justify-center"
+          >
             Contact Me
           </a>
         </motion.div>
@@ -124,10 +133,14 @@ function Home() {
             Scroll to explore
           </span>
           <div className="w-4 h-6 sm:w-5 sm:h-8 border-2 border-black/20 rounded-full flex justify-center pt-1">
-            <motion.div 
+            <motion.div
               className="w-1 h-1.5 sm:h-2 bg-[#FFE600] rounded-full"
               animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
           </div>
         </motion.div>
