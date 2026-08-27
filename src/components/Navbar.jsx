@@ -1,29 +1,36 @@
-import React, { useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Navbar({ menuOpen, setMenuOpen }) {
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [menuOpen]);
 
-  const navLinks = ["Home", "About", "Projects", "Support", "Contact"];
+  const navLinks = ['Home', 'About', 'Projects', 'Support', 'Contact'];
 
   return (
     <>
-      <motion.nav
+      <motion.nav 
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-[1200px] z-50 glass-light rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all duration-300"
+        className='fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-[1200px] z-50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all duration-300'
+        style={{
+          background: 'rgba(255, 255, 255, 0.15)',
+          backdropFilter: 'blur(40px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+          border: '1px solid rgba(255, 255, 255, 0.25)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+        }}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
           <div className="flex justify-between items-center h-12 sm:h-14 md:h-16">
             {/* Logo */}
-            <motion.a
-              href="#home"
+            <motion.a 
+              href="#home" 
               className="font-bold text-base sm:text-xl md:text-2xl text-black hover:text-[#FFE600] transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
@@ -34,7 +41,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6 lg:gap-10">
               {navLinks.map((link) => (
-                <motion.a
+                <motion.a 
                   key={link}
                   href={`#${link.toLowerCase()}`}
                   className="text-black/60 text-sm lg:text-base font-medium hover:text-[#FFE600] relative group transition-all duration-300"
@@ -48,42 +55,51 @@ function Navbar({ menuOpen, setMenuOpen }) {
             </div>
 
             {/* Mobile Menu Toggle */}
-            <motion.button
-              className="md:hidden w-8 h-8 sm:w-10 sm:h-10 flex flex-col items-center justify-center gap-1.5 cursor-pointer z-50 glass-light rounded-xl border border-white/30 hover:border-[#FFE600]/50 transition-all duration-300"
+            <motion.button 
+              className='md:hidden w-8 h-8 sm:w-10 sm:h-10 flex flex-col items-center justify-center gap-1.5 cursor-pointer z-50 rounded-xl border border-white/30 hover:border-[#FFE600]/50 transition-all duration-300'
               onClick={() => setMenuOpen((prev) => !prev)}
               aria-label="Toggle menu"
               whileTap={{ scale: 0.9 }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.15)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+              }}
             >
-              <span
-                className={`block w-4 sm:w-5 h-0.5 bg-black rounded-full transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`}
-              ></span>
-              <span
-                className={`block w-4 sm:w-5 h-0.5 bg-black rounded-full transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-              ></span>
-              <span
-                className={`block w-4 sm:w-5 h-0.5 bg-black rounded-full transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
-              ></span>
+              <span className={`block w-4 sm:w-5 h-0.5 bg-black rounded-full transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+              <span className={`block w-4 sm:w-5 h-0.5 bg-black rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block w-4 sm:w-5 h-0.5 bg-black rounded-full transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
             </motion.button>
           </div>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay - Separate for better control */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            className="md:hidden fixed inset-0 bg-[#faf8f5]/98 backdrop-blur-3xl z-40 flex flex-col items-center justify-center"
+          <motion.div 
+            className="md:hidden fixed inset-0 z-40 flex flex-col items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            style={{
+              background: 'rgba(250, 248, 245, 0.92)',
+              backdropFilter: 'blur(60px) saturate(200%)',
+              WebkitBackdropFilter: 'blur(60px) saturate(200%)',
+            }}
           >
             {/* Close Button */}
-            <motion.button
-              onClick={() => setMenuOpen(false)}
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-2xl sm:text-3xl text-black/60 hover:text-[#FFE600] transition-all duration-300 focus:outline-none cursor-pointer glass-light rounded-full border border-white/30 hover:border-[#FFE600]/50"
+            <motion.button 
+              onClick={() => setMenuOpen(false)} 
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-2xl sm:text-3xl text-black/60 hover:text-[#FFE600] transition-all duration-300 focus:outline-none cursor-pointer rounded-full border border-white/30 hover:border-[#FFE600]/50"
               whileTap={{ scale: 0.9 }}
               aria-label="Close Menu"
+              style={{
+                background: 'rgba(255, 255, 255, 0.15)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+              }}
             >
               <span className="leading-none">×</span>
             </motion.button>
@@ -108,7 +124,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
             </div>
 
             {/* Divider */}
-            <motion.div
+            <motion.div 
               className="w-16 h-px bg-black/10 my-4"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -116,7 +132,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
             />
 
             {/* Social Links */}
-            <motion.div
+            <motion.div 
               className="flex gap-6 sm:gap-8"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -149,7 +165,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
             </motion.div>
 
             {/* Decorative Dots */}
-            <motion.div
+            <motion.div 
               className="absolute bottom-8 sm:bottom-12 flex gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
