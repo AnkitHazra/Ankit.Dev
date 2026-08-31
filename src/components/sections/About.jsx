@@ -5,72 +5,213 @@ import {
   FaTwitter,
   FaFacebook,
   FaInstagram,
+  FaCode,
+  FaJava,
+  FaPython,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaDatabase,
+  FaTools,
+  FaCss3Alt,
 } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import {
+  SiLeetcode,
+  SiCplusplus,
+  SiJavascript,
+  SiTailwindcss,
+  SiHtml5,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiPandas,
+  SiNumpy,
+  SiOpencv,
+  SiGooglecolab,
+  SiPycharm,
+  SiIntellijidea,
+} from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 import { motion } from "framer-motion";
 
 function About() {
-  const languages = [
-    "C",
-    "C++",
-    "Java",
-    "Python",
-    "TailwindCSS",
-    "HTML/CSS",
-    "JavaScript",
+  const skillSections = [
+    {
+      title: "Languages",
+      icon: <FaCode />,
+      items: [
+        { name: "C", icon: <FaCode /> },
+        { name: "C++", icon: <SiCplusplus /> },
+        { name: "Java", icon: <FaJava /> },
+        { name: "Python", icon: <FaPython /> },
+        { name: "JavaScript", icon: <SiJavascript /> },
+      ],
+    },
+    {
+      title: "Frontend & Backend",
+      icon: <FaReact />,
+      items: [
+        { name: "React", icon: <FaReact /> },
+        { name: "Node.js", icon: <FaNodeJs /> },
+        { name: "Express.js", icon: <SiExpress /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+        { name: "HTML", icon: <SiHtml5 /> },
+        { name: "CSS", icon: <FaCss3Alt /> },
+      ],
+    },
+    {
+      title: "AI / Data",
+      icon: <FaPython />,
+      items: [
+        { name: "Pandas", icon: <SiPandas /> },
+        { name: "NumPy", icon: <SiNumpy /> },
+        { name: "Matplotlib", icon: <FaCode /> },
+        { name: "OpenCV", icon: <SiOpencv /> },
+        { name: "YOLO Ultralytics", icon: <FaPython /> },
+      ],
+    },
+    {
+      title: "Databases",
+      icon: <FaDatabase />,
+      items: [
+        { name: "MongoDB", icon: <SiMongodb /> },
+        { name: "MySQL", icon: <SiMysql /> },
+      ],
+    },
+    {
+      title: "Developer Tools",
+      icon: <FaTools />,
+      full: true,
+      items: [
+        { name: "Git", icon: <FaGitAlt /> },
+        { name: "GitHub", icon: <FaGithub /> },
+        { name: "Google Colab", icon: <SiGooglecolab /> },
+        { name: "VS Code", icon: <VscVscode /> },
+        { name: "PyCharm", icon: <SiPycharm /> },
+        { name: "IntelliJ IDEA", icon: <SiIntellijidea /> },
+      ],
+    },
   ];
-  const framework = ["React", "Node.js", "Express.js", "Tailwind CSS"];
-  const library = [
-    "Pandas",
-    "NumPy",
-    "Matplotlib",
-    "OpenCV",
-    "YOLO Ultralytics",
-  ];
-  const db = ["MongoDB", "MySQL"];
-  const devTools = [
-    "Git",
-    "GitHub",
-    "Google Colab",
-    "VS Code",
-    "PyCharm",
-    "IntelliJ",
+
+  const socialLinks = [
+    {
+      icon: <FaGithub />,
+      link: "https://github.com/AnkitHazra",
+      label: "GitHub",
+    },
+    {
+      icon: <FaLinkedin />,
+      link: "https://www.linkedin.com/in/hazraankit2005/",
+      label: "LinkedIn",
+    },
+    {
+      icon: <SiLeetcode />,
+      link: "https://leetcode.com/u/Ankit_Hazra/",
+      label: "LeetCode",
+    },
+    {
+      icon: <FaTwitter />,
+      link: "https://x.com/hazraAnkit790",
+      label: "Twitter",
+    },
+    {
+      icon: <FaInstagram />,
+      link: "https://www.instagram.com/hazra_ankit1/",
+      label: "Instagram",
+    },
+    {
+      icon: <FaFacebook />,
+      link: "https://www.facebook.com/profile.php?id=100093854046682",
+      label: "Facebook",
+    },
   ];
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
+      transition: {
+        staggerChildren: 0.08,
+      },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
+    hidden: {
+      opacity: 0,
+      y: 25,
+      scale: 0.97,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.55,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
   };
 
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center py-20 bg-[#faf8f5]"
+      className="relative min-h-screen flex items-center justify-center py-24 overflow-hidden bg-[#faf8f5]"
     >
-      <div className="max-w-4xl mx-auto px-4">
-        {/* Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
+      {/* Background decoration */}
+      {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+          className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-[#FFE600]/10 blur-3xl"
+        />
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-[#FFE600]/10 blur-3xl"
+        />
+
+        <div className="absolute inset-0 opacity-[0.025] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:24px_24px]" />
+      </div> */}
+
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-6">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-6xl font-bold mb-4 text-black text-center"
+          transition={{
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="text-center mb-10"
         >
-          About Me
-        </motion.h2>
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: 96 }}
-          viewport={{ once: true }}
-          className="h-1 bg-[#FFE600] mx-auto mb-8 rounded-full"
-        />
+          <div className="inline-flex items-center gap-2 mb-4">
+            <span className="w-8 h-[2px] bg-[#FFE600]" />
+
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-black/40">
+              Get to know me
+            </span>
+
+            <span className="w-8 h-[2px] bg-[#FFE600]" />
+          </div>
+
+          <h2 className="text-5xl md:text-6xl font-black tracking-tight text-black">
+            About <span className="text-[#FFE600]">Me</span>
+          </h2>
+
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="h-1 bg-black mx-auto mt-5 rounded-full"
+          />
+        </motion.div>
 
         {/* Social Links */}
         <motion.div
@@ -78,184 +219,289 @@ function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex justify-center gap-6 mb-12 mt-10"
+          className="flex justify-center flex-wrap gap-3 md:gap-4 mb-12"
         >
-          {[
-            { icon: <FaGithub />, link: "https://github.com/AnkitHazra" },
-            {
-              icon: <FaLinkedin />,
-              link: "https://www.linkedin.com/in/hazraankit2005/",
-            },
-            {
-              icon: <SiLeetcode />,
-              link: "https://leetcode.com/u/Ankit_Hazra/",
-            },
-            { icon: <FaTwitter />, link: "https://x.com/hazraAnkit790" },
-            {
-              icon: <FaInstagram />,
-              link: "https://www.instagram.com/hazra_ankit1/",
-            },
-            {
-              icon: <FaFacebook />,
-              link: "https://www.facebook.com/profile.php?id=100093854046682",
-            },
-          ].map((social, i) => (
+          {socialLinks.map((social, i) => (
             <motion.a
               key={i}
+              variants={itemVariants}
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black/40 hover:text-[#FFE600] text-2xl md:text-3xl transition-all duration-300 hover:scale-125"
-              whileHover={{ scale: 1.25, rotate: 6 }}
-              whileTap={{ scale: 0.9 }}
+              aria-label={social.label}
+              whileHover={{
+                y: -6,
+                scale: 1.08,
+              }}
+              whileTap={{
+                scale: 0.92,
+              }}
+              className="
+                group relative
+                w-11 h-11 md:w-12 md:h-12
+                flex items-center justify-center
+                rounded-xl
+                bg-white
+                border border-black/10
+                text-black/50
+                shadow-sm
+                transition-all duration-300
+                hover:text-black
+                hover:border-[#FFE600]
+                hover:shadow-[0_8px_25px_rgba(255,230,0,0.25)]
+              "
             >
-              {social.icon}
+              <span className="relative z-10 text-lg md:text-xl transition-transform duration-300 group-hover:scale-110">
+                {social.icon}
+              </span>
+
+              {/* Yellow hover fill */}
+              <span
+                className="
+                  absolute inset-0 rounded-xl
+                  bg-[#FFE600]
+                  scale-0
+                  group-hover:scale-100
+                  transition-transform duration-300
+                  origin-center
+                  -z-0
+                "
+              />
             </motion.a>
           ))}
         </motion.div>
 
-        {/* Introduction Card */}
+        {/* Main Card */}
         <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className={`rounded-2xl p-6 md:p-8 glass-light mb-8 border border-white/20`}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          whileHover={{
+            y: -4,
+            transition: { duration: 0.3 },
+          }}
+          className="
+            relative
+            overflow-hidden
+            rounded-3xl
+            p-6 md:p-10
+            bg-gradient-to-br
+            from-[#fffdf0]
+            via-[#fffbea]
+            to-[#fff6b8]/60
+            border border-[#FFE600]/30
+            shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+          "
         >
-          <p className="text-black/80 mb-6 text-lg md:text-xl leading-relaxed">
-            I'm <strong className="text-black">Ankit Hazra</strong>, a
-            full-stack and AI developer from
-            <strong className="text-black"> IEM Kolkata</strong>, passionate
-            about solving complex problems and building applications that
-            deliver real impact. My expertise includes React, modern JavaScript,
-            backend development using Node.js & Express, and AI/ML
-            experimentation with Python.
-            <br />
-            <br />
-            My goal is to build clean, maintainable, scalable technology — from
-            machine-learning tools to production-ready web applications.
-          </p>
+          {/* Card accent */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFE600] to-transparent" />
 
-          <p className="text-black/60 mb-6 text-base md:text-lg leading-relaxed">
-            I work across the full development cycle: ideation, prototyping, UI
-            design, API engineering, database structuring, deployment, cloud
-            integration, and performance optimization. I love experimenting with
-            emerging technologies, robotics, automation, and real-world software
-            engineering.
-          </p>
+          {/* Decorative corner */}
+          <div className="absolute -top-20 -right-20 w-52 h-52 rounded-full bg-[#FFE600]/15 blur-2xl" />
 
-          {/* Hard Skill Blocks */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              { title: "Languages", items: languages },
-              { title: "Frameworks", items: framework },
-              { title: "AI / Data Libraries", items: library },
-              { title: "Databases", items: db },
-              { title: "Developer Tools", items: devTools, full: true },
-            ].map((section, idx) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                className={`rounded-xl p-5 glass-dark border border-black/5 ${section.full ? "md:col-span-2" : ""}`}
-                whileHover={{ y: -2, transition: { duration: 0.3 } }}
-              >
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-black/40 mb-3">
-                  {section.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {section.items.map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-white/40 backdrop-blur-sm text-black/70 text-xs py-1.5 px-3 rounded-full border border-black/5 hover:border-[#FFE600] hover:bg-[#FFE600]/10 transition-all duration-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+          <div className="relative z-10">
+            {/* Introduction */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-10"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center text-[#FFE600] shadow-lg">
+                  <FaCode />
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-black/40">
+                    Developer Profile
+                  </p>
+
+                  <h3 className="text-xl font-bold text-black">
+                    Building with purpose.
+                  </h3>
+                </div>
+              </div>
+
+              <p className="text-black/80 text-base md:text-lg leading-relaxed">
+                I'm{" "}
+                <strong className="text-black font-bold">Ankit Hazra</strong>, a
+                full-stack and AI developer from{" "}
+                <strong className="text-black font-bold">IEM Kolkata</strong>,
+                passionate about solving complex problems and building
+                applications that deliver real impact. My expertise includes
+                React, modern JavaScript, backend development using Node.js &
+                Express, and AI/ML experimentation with Python.
+              </p>
+
+              <p className="text-black/60 mt-5 text-sm md:text-base leading-relaxed">
+                I work across the full development cycle — from ideation and
+                prototyping to UI design, API engineering, database structuring,
+                deployment, cloud integration, and performance optimization. I
+                enjoy experimenting with emerging technologies, robotics,
+                automation, and real-world software engineering.
+              </p>
+            </motion.div>
+
+            {/* Divider */}
+            <div className="relative h-px bg-black/10 mb-8">
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "25%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="absolute left-0 top-0 h-px bg-[#FFE600]"
+              />
+            </div>
+
+            {/* Skills Header */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-6"
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-black/40 mb-1">
+                Technical Stack
+              </p>
+
+              <h3 className="text-2xl font-black text-black">
+                Skills & Technologies
+              </h3>
+            </motion.div>
+
+            {/* Skills */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
+              {skillSections.map((section, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={itemVariants}
+                  whileHover={{
+                    y: -5,
+                    transition: { duration: 0.25 },
+                  }}
+                  className={`
+                    group relative
+                    overflow-hidden
+                    rounded-2xl
+                    p-5
+                    bg-white/75
+                    backdrop-blur-md
+                    border border-black/10
+                    shadow-sm
+                    hover:border-[#FFE600]/70
+                    hover:shadow-[0_12px_35px_rgba(255,230,0,0.16)]
+                    transition-all duration-300
+                    ${section.full ? "md:col-span-2" : ""}
+                  `}
+                >
+                  {/* Hover accent */}
+                  <div
+                    className="
+                      absolute top-0 left-0
+                      w-0 h-[3px]
+                      bg-[#FFE600]
+                      group-hover:w-full
+                      transition-all duration-500
+                    "
+                  />
+
+                  {/* Section heading */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="
+                        w-10 h-10
+                        rounded-xl
+                        flex items-center justify-center
+                        bg-[#FFE600]/20
+                        text-black
+                        border border-[#FFE600]/30
+                        group-hover:bg-[#FFE600]
+                        group-hover:scale-110
+                        transition-all duration-300
+                      "
+                    >
+                      {section.icon}
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-bold text-black">
+                        {section.title}
+                      </h4>
+
+                      <p className="text-[10px] uppercase tracking-wider text-black/35">
+                        {section.items.length} technologies
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Technology pills */}
+                  <div className="flex flex-wrap gap-2">
+                    {section.items.map((tech, key) => (
+                      <motion.span
+                        key={key}
+                        whileHover={{
+                          scale: 1.06,
+                          y: -2,
+                        }}
+                        className="
+                          group/tech
+                          inline-flex
+                          items-center
+                          gap-2
+                          text-xs
+                          font-medium
+                          text-black/65
+                          py-2
+                          px-3
+                          rounded-lg
+                          bg-[#fafafa]
+                          border border-black/8
+                          cursor-default
+                          hover:text-black
+                          hover:bg-[#FFE600]/15
+                          hover:border-[#FFE600]
+                          transition-all duration-200
+                        "
+                      >
+                        <span className="text-black/40 group-hover/tech:text-black transition-colors duration-200">
+                          {tech.icon}
+                        </span>
+
+                        {tech.name}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </motion.div>
 
-        {/* Education & Experience */}
+        {/* Bottom accent */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex justify-center mt-10"
         >
-          <motion.div
-            variants={itemVariants}
-            className={`rounded-2xl p-6 glass-light border border-white/20`}
-            whileHover={{ y: -4, transition: { duration: 0.3 } }}
-          >
-            <h3 className="text-lg font-bold mb-4 text-black flex items-center gap-2">
-              <span className="w-6 h-6 bg-[#FFE600] rounded-full inline-block"></span>
-              Education
-            </h3>
-            <ul className="space-y-3 text-black/70">
-              <li>
-                <strong className="text-black">
-                  Institute Of Engineering & Management, Kolkata
-                </strong>
-                <p className="text-sm">
-                  B.Tech in Electrical Engineering (2023-2027)
-                </p>
-              </li>
-              <li className="text-sm">
-                Learning Data Structures & Algorithms, Web Technologies &
-                Machine Learning.
-              </li>
-              <li>
-                <strong className="text-black">
-                  Techno India Group Public School, Bolpur
-                </strong>
-                <p className="text-sm">(2021-23)</p>
-              </li>
-              <li>
-                <strong className="text-black">
-                  St. Teresa's School, Bolpur
-                </strong>
-                <p className="text-sm">(ICSE)</p>
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className={`rounded-2xl p-6 glass-light border border-white/20`}
-            whileHover={{ y: -4, transition: { duration: 0.3 } }}
-          >
-            <h3 className="text-lg font-bold mb-4 text-black flex items-center gap-2">
-              <span className="w-6 h-6 bg-[#FFE600] rounded-full inline-block"></span>
-              Experience
-            </h3>
-            <p className="text-black/70 leading-relaxed">
-              Completed a research internship at{" "}
-              <strong className="text-black">IIEST Shibpur</strong> where I
-              developed an AI-powered sign-language recognition system with
-              real-time speech synthesis, improving accessibility and bridging
-              communication barriers.
-            </p>
-            <div className="mt-4 flex gap-2 flex-wrap">
-              <span className="text-xs bg-[#FFE600]/10 text-black/70 px-3 py-1 rounded-full border border-[#FFE600]/20">
-                AI/ML
-              </span>
-              <span className="text-xs bg-[#FFE600]/10 text-black/70 px-3 py-1 rounded-full border border-[#FFE600]/20">
-                Research
-              </span>
-              <span className="text-xs bg-[#FFE600]/10 text-black/70 px-3 py-1 rounded-full border border-[#FFE600]/20">
-                Accessibility
-              </span>
-            </div>
-          </motion.div>
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-black" />
+            <span className="w-16 h-[2px] bg-[#FFE600]" />
+            <span className="w-2 h-2 rounded-full bg-black" />
+          </div>
         </motion.div>
       </div>
     </section>

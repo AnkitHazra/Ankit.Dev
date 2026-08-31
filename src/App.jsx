@@ -8,6 +8,8 @@ import Project from "./components/sections/Project";
 import Support from "./components/sections/Support";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
+import Education from "./components/sections/Education";
+import Experience from "./components/sections/Experience";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,6 +20,8 @@ export default function App() {
       <main className="relative z-10">
         <Home />
         <About />
+        <Education />
+        <Experience />
         <Project />
         <Support />
         <Contact />

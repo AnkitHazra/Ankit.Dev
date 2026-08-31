@@ -99,8 +99,8 @@ function Support() {
           viewport={{ once: true }}
           className="text-black/60 text-center text-lg mb-12 max-w-2xl mx-auto leading-relaxed"
         >
-          If you find this platform helpful, consider supporting the
-          development. Every contribution helps make Hirevity better!
+          If this platform saved your day, make my night. I promise to spend
+          your contribution strictly on caffeine and looking cute while coding.
         </motion.p>
 
         {/* Main Support Card */}
@@ -156,12 +156,12 @@ function Support() {
             variants={itemVariants}
             className="relative flex items-center justify-center my-6"
           >
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent"></div>
+            <div className="flex-1 h-px bg-linear-to-r from-transparent via-black/10 to-transparent"></div>
             <span className="px-4 text-black/30 text-sm flex items-center gap-2">
               <FaHeart className="text-[#FFE600] text-xs" /> Support my work{" "}
               <FaHeart className="text-[#FFE600] text-xs" />
             </span>
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent"></div>
+            <div className="flex-1 h-px bg-linear-to-r from-transparent via-black/10 to-transparent"></div>
           </motion.div>
 
           {/* Support Buttons */}
@@ -195,7 +195,8 @@ function Support() {
             variants={itemVariants}
             className="text-black/30 text-xs text-center mt-6"
           >
-            Every contribution helps the creator fullfill his dreams. ❤️
+            Love what you see? Buy the dev a drink. It takes a lot of brain
+            juice to keep things running this smoothly.
           </motion.p>
         </motion.div>
 
