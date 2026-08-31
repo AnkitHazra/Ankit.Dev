@@ -1,5 +1,6 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io5";
 import { motion } from "framer-motion";
 
 function Footer() {
@@ -70,6 +71,11 @@ function Footer() {
               icon: FaTwitter,
               link: "https://x.com/hazraAnkit790",
               label: "Twitter",
+            },
+            {
+              icon: IoLogoWhatsapp,
+              link: "https://wa.me/917908618931",
+              label: "WhatsApp",
             },
           ].map((social, idx) => (
             <motion.a

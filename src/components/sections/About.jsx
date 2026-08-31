@@ -1,4 +1,5 @@
 import React from "react";
+import { IoLogoWhatsapp } from "react-icons/io5";
 import {
   FaGithub,
   FaLinkedin,
@@ -110,6 +111,11 @@ function About() {
       label: "LeetCode",
     },
     {
+      icon: <IoLogoWhatsapp />,
+      link: "https://wa.me/917908618931",
+      label: "WhatsApp",
+    },
+    {
       icon: <FaTwitter />,
       link: "https://x.com/hazraAnkit790",
       label: "Twitter",
@@ -157,27 +163,6 @@ function About() {
       id="about"
       className="relative min-h-screen flex items-center justify-center py-24 overflow-hidden bg-[#faf8f5]"
     >
-      {/* Background decoration */}
-      {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-[#FFE600]/10 blur-3xl"
-        />
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.2 }}
-          className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-[#FFE600]/10 blur-3xl"
-        />
-
-        <div className="absolute inset-0 opacity-[0.025] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:24px_24px]" />
-      </div> */}
-
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-6">
         {/* Heading */}
         <motion.div

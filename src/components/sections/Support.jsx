@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { IoLogoWhatsapp } from "react-icons/io5";
 import {
   FaHeart,
   FaCoffee,
@@ -25,11 +26,19 @@ function Support() {
       link: "https://leetcode.com/u/Ankit_Hazra/",
       label: "LeetCode",
     },
-    { icon: FaTwitter, link: "https://x.com/hazraAnkit790", label: "Twitter" },
+    { icon: FaTwitter, 
+      link: "https://x.com/hazraAnkit790",
+      label: "Twitter" 
+    },
     {
       icon: FaInstagram,
       link: "https://www.instagram.com/hazra_ankit1/",
       label: "Instagram",
+    },
+    {
+      icon: IoLogoWhatsapp,
+      link: "https://wa.me/917908618931",
+      label: "WhatsApp",
     },
     {
       icon: FaFacebook,

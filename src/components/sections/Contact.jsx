@@ -179,6 +179,13 @@ function Contact() {
                 >
                   hazraankit668@gmail.com
                 </a>
+                <span className="mx-1">|</span>
+                <a
+                  href="mailto:Ankit.Hazra2023@iem.edu.in"
+                  className="text-black hover:text-[#FFE600] font-medium transition-colors duration-300"
+                >
+                  Ankit.Hazra2023@iem.edu.in
+                </a>
               </p>
             </motion.div>
           </form>
