@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
+import validator from "validator";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -8,9 +9,19 @@ function Contact() {
     email: "",
     message: "",
   });
+  const [emailError, setEmailError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate email
+    if (!validator.isEmail(formData.email)) {
+      setEmailError("Please enter a valid email address.");
+      return; // Stop the function here so emailjs doesn't run
+    }
+
+    // Clear any previous error
+    setEmailError("");
 
     emailjs
       .sendForm(
@@ -22,8 +33,20 @@ function Contact() {
       .then(() => {
         alert("Message Sent!");
         setFormData({ name: "", email: "", message: "" });
+        setEmailError("");
       })
       .catch(() => alert("Oops! Something went wrong. Please try again."));
+  };
+
+  // Helper to update fields and clear email error when user fixes it
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Clear email error as soon as the user types a valid email
+    if (name === "email" && emailError && validator.isEmail(value)) {
+      setEmailError("");
+    }
   };
 
   return (
@@ -55,7 +78,7 @@ function Contact() {
           viewport={{ once: true }}
           className="glass-light rounded-2xl p-6 md:p-8 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
         >
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form className="space-y-5" onSubmit={handleSubmit} noValidate>
             {/* Name */}
             <motion.div
               className="relative group"
@@ -75,9 +98,7 @@ function Contact() {
                 focus:outline-none focus:border-[#FFE600] focus:ring-2 focus:ring-[#FFE600]/20
                 group-hover:border-[#FFE600]/50"
                 placeholder="Your Name"
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
+                onChange={handleChange}
               />
               <label
                 htmlFor="name"
@@ -101,14 +122,17 @@ function Contact() {
                 name="email"
                 required
                 value={formData.email}
-                className="w-full bg-white/40 backdrop-blur-sm border border-black/10 rounded-xl px-4 py-3 
+                className={`w-full bg-white/40 backdrop-blur-sm border rounded-xl px-4 py-3 
                 text-black placeholder:text-black/30 transition-all duration-300
-                focus:outline-none focus:border-[#FFE600] focus:ring-2 focus:ring-[#FFE600]/20
-                group-hover:border-[#FFE600]/50"
+                focus:outline-none focus:ring-2
+                group-hover:border-[#FFE600]/50
+                ${
+                  emailError
+                    ? "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                    : "border-black/10 focus:border-[#FFE600] focus:ring-[#FFE600]/20"
+                }`}
                 placeholder="your@email.com"
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
+                onChange={handleChange}
               />
               <label
                 htmlFor="email"
@@ -116,6 +140,17 @@ function Contact() {
               >
                 Email
               </label>
+
+              {/* Email Error Message */}
+              {emailError && (
+                <motion.p
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-1.5 ml-1 text-xs text-red-500 font-medium"
+                >
+                  {emailError}
+                </motion.p>
+              )}
             </motion.div>
 
             {/* Message */}
@@ -137,9 +172,7 @@ function Contact() {
                 focus:outline-none focus:border-[#FFE600] focus:ring-2 focus:ring-[#FFE600]/20
                 group-hover:border-[#FFE600]/50"
                 placeholder="Your message..."
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
+                onChange={handleChange}
               />
               <label
                 htmlFor="message"
