@@ -10,40 +10,81 @@ function Contact() {
     message: "",
   });
   const [emailError, setEmailError] = useState("");
+  const [isVerifying, setIsVerifying] = useState(false);
 
-  const handleSubmit = (e) => {
+  // Helper function to verify email existence using AbstractAPI
+  const verifyEmailExists = async (email) => {
+  const apiKey = import.meta.env.VITE_ABSTRACT_API_KEY;
+  
+  const response = await fetch(
+    `https://emailreputation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(email)}`
+  );
+  
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
+  
+  const data = await response.json();
+  
+  // Email Reputation API nests deliverability info under "email_deliverability"
+  // and uses lowercase status values
+  return data.email_deliverability?.status === "deliverable";
+};
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate email
+    // Step 1: Fast local syntax check
     if (!validator.isEmail(formData.email)) {
       setEmailError("Please enter a valid email address.");
-      return; // Stop the function here so emailjs doesn't run
+      return;
     }
 
-    // Clear any previous error
     setEmailError("");
+    setIsVerifying(true);
 
-    emailjs
-      .sendForm(
+    try {
+      // Step 2: Verify the email actually exists (API call)
+      const emailIsDeliverable = await verifyEmailExists(formData.email);
+
+      if (!emailIsDeliverable) {
+        setEmailError(
+          "This email address does not appear to be deliverable. Please check and try again."
+        );
+        setIsVerifying(false);
+        return;
+      }
+
+      // Step 3: Send the email via EmailJS
+      await emailjs.sendForm(
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID,
         e.target,
-        import.meta.env.VITE_PUBLIC_KEY,
-      )
-      .then(() => {
-        alert("Message Sent!");
-        setFormData({ name: "", email: "", message: "" });
-        setEmailError("");
-      })
-      .catch(() => alert("Oops! Something went wrong. Please try again."));
+        import.meta.env.VITE_PUBLIC_KEY
+      );
+
+      alert("Message Sent!");
+      setFormData({ name: "", email: "", message: "" });
+      setEmailError("");
+    } catch (error) {
+      console.error("Submission error:", error);
+      
+      // Distinguish between API errors and EmailJS errors
+      if (error.message.includes("API error")) {
+        setEmailError("Unable to verify email right now. Please try again.");
+      } else {
+        alert("Oops! Something went wrong. Please try again.");
+      }
+    } finally {
+      setIsVerifying(false);
+    }
   };
 
-  // Helper to update fields and clear email error when user fixes it
+  // Clear email error as user types a valid email
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Clear email error as soon as the user types a valid email
     if (name === "email" && emailError && validator.isEmail(value)) {
       setEmailError("");
     }
@@ -185,15 +226,18 @@ function Contact() {
             {/* Submit Button */}
             <motion.button
               type="submit"
-              className="btn-primary w-full justify-center"
+              disabled={isVerifying}
+              className={`btn-primary w-full justify-center ${
+                isVerifying ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={!isVerifying ? { scale: 1.02 } : {}}
+              whileTap={!isVerifying ? { scale: 0.98 } : {}}
             >
-              Send Message
+              {isVerifying ? "Verifying..." : "Send Message"}
             </motion.button>
 
             {/* Alternative Contact */}
