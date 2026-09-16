@@ -1,11 +1,11 @@
 export default async function handler(req, res) {
-  try {
-    if (req.method !== "GET") {
-      return res.status(405).json({
-        error: "Method not allowed",
-      });
-    }
+  if (req.method !== "GET") {
+    return res.status(405).json({
+      error: "Method not allowed",
+    });
+  }
 
+  try {
     const response = await fetch(
       "https://api.counterapi.dev/v2/ankit-hazras-team-5546/portfoliowebsitecounter/up",
       {
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json(data);
   } catch (error) {
-    console.error("Visitor API error:", error);
+    console.error("Visitor counter error:", error);
 
     return res.status(500).json({
       error: "Internal server error",
