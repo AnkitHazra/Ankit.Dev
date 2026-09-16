@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
-import validator from "validator";
+import validator from "validator"; // Import the VisitorCounter component
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -14,22 +14,22 @@ function Contact() {
 
   // Helper function to verify email existence using AbstractAPI
   const verifyEmailExists = async (email) => {
-  const apiKey = import.meta.env.VITE_ABSTRACT_API_KEY;
-  
-  const response = await fetch(
-    `https://emailreputation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(email)}`
-  );
-  
-  if (!response.ok) {
-    throw new Error(`API error: ${response.status}`);
-  }
-  
-  const data = await response.json();
-  
-  // Email Reputation API nests deliverability info under "email_deliverability"
-  // and uses lowercase status values
-  return data.email_deliverability?.status === "deliverable";
-};
+    const apiKey = import.meta.env.VITE_ABSTRACT_API_KEY;
+
+    const response = await fetch(
+      `https://emailreputation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(email)}`,
+    );
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // Email Reputation API nests deliverability info under "email_deliverability"
+    // and uses lowercase status values
+    return data.email_deliverability?.status === "deliverable";
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +49,7 @@ function Contact() {
 
       if (!emailIsDeliverable) {
         setEmailError(
-          "This email address does not appear to be deliverable. Please check and try again."
+          "This email address does not appear to be deliverable. Please check and try again.",
         );
         setIsVerifying(false);
         return;
@@ -60,7 +60,7 @@ function Contact() {
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID,
         e.target,
-        import.meta.env.VITE_PUBLIC_KEY
+        import.meta.env.VITE_PUBLIC_KEY,
       );
 
       alert("Message Sent!");
@@ -68,7 +68,7 @@ function Contact() {
       setEmailError("");
     } catch (error) {
       console.error("Submission error:", error);
-      
+
       // Distinguish between API errors and EmailJS errors
       if (error.message.includes("API error")) {
         setEmailError("Unable to verify email right now. Please try again.");
