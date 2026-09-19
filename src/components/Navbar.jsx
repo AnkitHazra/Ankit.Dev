@@ -49,7 +49,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
                   transition={{ type: "spring", stiffness: 400 }}
                 >
                   {link}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#FFE600] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FFE600] transition-all duration-300 group-hover:w-full"></span>
                 </motion.a>
               ))}
             </div>

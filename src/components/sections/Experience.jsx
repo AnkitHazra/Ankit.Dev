@@ -1,15 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Briefcase } from "lucide-react";
 
 const Experience = () => {
   const experienceData = [
     {
-      year: 'May – July 2025',
-      title: 'Research Intern',
-      institution: 'Indian Institute of Engineering Science and Technology (IIEST), Shibpur',
-      description: 'Developed a real-time Sign Language Detection and Audio Conversion system using Python and YOLOv8 (Ultralytics) for gesture detection and classification. Integrated pyttsx3 for text-to-speech conversion, enabling recognized sign language gestures to be translated into audible output. Worked on computer vision, real-time inference, model integration, and system implementation as part of a collaborative internship project at IIEST, Shibpur.',
-      projects: ['Sign Language Detection and Audio Conversion System'],
+      year: "August 2026 – Present",
+      title: "IT Intern",
+      institution: "MSP Steel & Power Ltd.",
+      description:
+        "IT Intern at MSP Steel and Power Ltd., developing an industrial furnace operation monitoring system using computer vision. Handled data annotation and augmentation, and trained multiple YOLO detection and segmentation models. Collaborated with mentors to successfully integrate and deploy the automated vision system into active plant operations, improving monitoring efficiency.",
+      projects: ["Furnace Operation monitoring System"],
+    },
+    {
+      year: "May – July 2025",
+      title: "Research Intern",
+      institution:
+        "Indian Institute of Engineering Science and Technology (IIEST), Shibpur",
+      description:
+        "Developed a real-time Sign Language Detection and Audio Conversion system using Python and YOLOv8 (Ultralytics) for gesture detection and classification. Integrated pyttsx3 for text-to-speech conversion, enabling recognized sign language gestures to be translated into audible output. Worked on computer vision, real-time inference, model integration, and system implementation as part of a collaborative internship project at IIEST, Shibpur.",
+      projects: ["Sign Language Detection and Audio Conversion System"],
     },
   ];
 
@@ -22,7 +32,12 @@ const Experience = () => {
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 15,
+              delay: 0.1,
+            }}
             className="mb-4 text-[#FFE600]"
           >
             <Briefcase size={48} strokeWidth={1.5} />
@@ -54,20 +69,20 @@ const Experience = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="relative mb-12 last:mb-0"
             >
-              {/* The vertical line with dots – positioned on the left */}
+              {/* ✅ Per-card vertical line + dot (line runs from dot down to bottom of card) */}
               <div className="absolute left-2.5 md:left-3.5 top-0 bottom-0 flex flex-col items-center">
                 {/* Dot */}
-                <div className="w-4 h-4 rounded-full bg-[#FFE600] border-2 border-white shadow-lg shadow-[#FFE600]/30 z-10" />
-                {/* Line extending downward (except for last item) */}
-                <div className="w-0.5 flex-1 bg-linear-to-b from-[#FFE600]/60 to-[#FFE600]/20 mt-1 last:hidden" />
+                <div className="w-4 h-4 rounded-full bg-[#FFE600] border-2 border-white shadow-lg shadow-[#FFE600]/40 z-10 mt-6" />
+                {/* Line below dot — fills the rest of THIS card's height */}
+                <div className="w-0.5 flex-1 bg-linear-to-b from-[#FFE600] via-[#FFE600]/60 to-[#FFE600]/20 mt-1" />
               </div>
 
-              {/* Card – Smooth Tween Animation with Elevated Shadow on Hover */}
+              {/* Card */}
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   boxShadow: "0px 15px 40px rgba(255, 230, 0, 0.35)",
-                  transition: { type: "tween", ease: "easeOut", duration: 0.3 }
+                  transition: { type: "tween", ease: "easeOut", duration: 0.3 },
                 }}
                 className="ml-6 md:ml-10 p-5 md:p-7 rounded-2xl glass-light border border-[#FFE600]/50 bg-[#FFE600]/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(255,230,0,0.15)] relative overflow-hidden"
               >
@@ -77,39 +92,37 @@ const Experience = () => {
                     <span className="text-sm font-mono font-bold text-black/70">
                       {item.year}
                     </span>
-                    
-                    {/* Default Yellow Institution Pill */}
+
                     <span className="text-sm font-semibold uppercase tracking-wider text-black border border-[#FFE600]/60 rounded-full px-4 py-1.5 bg-[#FFE600]/40 backdrop-blur-sm shadow-sm">
                       {item.institution}
                     </span>
                   </div>
-                  
-                  {/* Default Brown Title */}
+
                   <h3 className="text-2xl font-bold text-[#9A4B00] mb-3">
                     {item.title}
                   </h3>
-                  
-                  {/* Default Darker Text */}
+
                   <p className="text-black/80 leading-relaxed mb-5 font-medium">
                     {item.description}
                   </p>
-                  
+
                   {/* Projects list */}
                   <div className="mt-3 space-y-2">
                     {item.projects.map((project, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-black/90 font-medium">
+                      <div
+                        key={idx}
+                        className="flex items-start gap-2 text-black/90 font-medium"
+                      >
                         <span className="text-[#D4AF37] font-bold text-lg mt-0.5">
                           ▸
                         </span>
-                        <span>
-                          {project}
-                        </span>
+                        <span>{project}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Default Inner Gradient Overlay */}
+                {/* Inner Gradient Overlay */}
                 <div className="absolute inset-0 bg-linear-to-br from-[#FFE600]/0 via-[#FFE600]/5 to-[#FFE600]/20 opacity-100 pointer-events-none rounded-2xl" />
               </motion.div>
             </motion.div>

@@ -176,13 +176,13 @@ function About() {
           className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 mb-4">
-            <span className="w-8 h-[2px] bg-[#FFE600]" />
+            <span className="w-8 h-0.5 bg-[#FFE600]" />
 
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-black/40">
               Get to know me
             </span>
 
-            <span className="w-8 h-[2px] bg-[#FFE600]" />
+            <span className="w-8 h-0.5 bg-[#FFE600]" />
           </div>
 
           <h2 className="text-5xl md:text-6xl font-black tracking-tight text-black">
@@ -249,7 +249,7 @@ function About() {
                   group-hover:scale-100
                   transition-transform duration-300
                   origin-center
-                  -z-0
+                  z-0
                 "
               />
             </motion.a>
@@ -274,7 +274,7 @@ function About() {
             overflow-hidden
             rounded-3xl
             p-6 md:p-10
-            bg-gradient-to-br
+            bg-linear-to-br
             from-[#fffdf0]
             via-[#fffbea]
             to-[#fff6b8]/60
@@ -283,7 +283,7 @@ function About() {
           "
         >
           {/* Card accent */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFE600] to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-[#FFE600] to-transparent" />
 
           {/* Decorative corner */}
           <div className="absolute -top-20 -right-20 w-52 h-52 rounded-full bg-[#FFE600]/15 blur-2xl" />
@@ -395,7 +395,7 @@ function About() {
                   <div
                     className="
                       absolute top-0 left-0
-                      w-0 h-[3px]
+                      w-0 h-0.75
                       bg-[#FFE600]
                       group-hover:w-full
                       transition-all duration-500
@@ -484,7 +484,7 @@ function About() {
         >
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-black" />
-            <span className="w-16 h-[2px] bg-[#FFE600]" />
+            <span className="w-16 h-0.5 bg-[#FFE600]" />
             <span className="w-2 h-2 rounded-full bg-black" />
           </div>
         </motion.div>
