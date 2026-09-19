@@ -43,7 +43,7 @@ const CodingStats = () => {
   if (loading) {
     return (
       <section
-        id="coding-stats"
+        id="Coding-stats"
         className="
                     min-h-125
                     flex

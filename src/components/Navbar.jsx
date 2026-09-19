@@ -9,7 +9,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
     };
   }, [menuOpen]);
 
-  const navLinks = ['Home', 'About', 'Projects', 'Support', 'Contact'];
+  const navLinks = ['Home', 'About', 'Projects','Coding-stats', 'Support', 'Contact'];
 
   return (
     <>
