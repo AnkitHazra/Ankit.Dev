@@ -13,6 +13,7 @@ import Education from "./components/sections/Education";
 import Experience from "./components/sections/Experience";
 import SnowEffect from "./components/sections/SnowEffect";
 import VisitorCounter from "./components/VisitorCounter";
+import CodingStats from "./components/sections/CodingStats";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,6 +34,7 @@ export default function App() {
           <Education />
           <Experience />
           <Project />
+          <CodingStats />
           <Support />
           <Contact />
           <VisitorCounter />
